@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myjavaapp-rc
+spec:
+  replicas: 2
+  selector:
+    app: myjavaapp
+    version: 2.6.2
+  template:
+    metadata:
+      labels:
+        app: myjavaapp
+        version: 2.6.2
+    spec:
+     containers:
+     - name: mycontainer
+       image: geeta1122/myjavaapp09nov21:1
+       ports:
+        - containerPort: 8080
